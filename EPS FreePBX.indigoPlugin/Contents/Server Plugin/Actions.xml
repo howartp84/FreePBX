@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<Actions>
+	<SupportURL>http://forums.indigodomo.com/viewtopic.php?f=196&amp;t=16141</SupportURL>
+
+	<Action id="callForwarding" deviceFilter="com.eps.indigoplugin.freepbx.Extension" uiPath="DeviceActions">
+		<Name>Call Forwarding</Name>
+		<ConfigUI>
+			<Field id="cfenabled" type="checkbox" defaultValue="true" >
+				<Label>Forwarding:</Label>
+				<Description>Unconditional</Description>
+			</Field>
+			
+			<Field type="label" id="label_cfenabled" fontColor="darkgray" fontSize="mini" alignWithControl="true">
+                <Label>Unconditional forwarding will forward all calls to this extension regardless of any other feature or forwarding.</Label>
+            </Field>
+			
+			<Field id="cfnumber" type="textfield" defaultValue="" visibleBindingId="cfenabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
+				<Label>Number:</Label>
+			</Field>
+			
+			<Field type="label" id="label_cfnumber" fontColor="darkgray" fontSize="mini" alignWithControl="true" visibleBindingId="cfenabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
+                <Label>Enter an extension or feature code.  You can also use an outside number if you have enough lines to receive a call on one line and dial out another since forwarding to an outside number requires two lines.</Label>
+            </Field>
+			
+			<Field type="separator" id="sep_cf" visibleBindingId="cfenabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true"/>
+			
+			<Field id="cfuenabled" type="checkbox" defaultValue="false" >
+				<Label>Forwarding:</Label>
+				<Description>Unavailable</Description>
+			</Field>
+			
+			<Field type="label" id="label_cfuenabled" fontColor="darkgray" fontSize="mini" alignWithControl="true">
+                <Label>Unavailable forwarding will forward all calls to this extension when you are unavailable (nobody picks up).</Label>
+            </Field>
+			
+			<Field id="cfunumber" type="textfield" defaultValue="" visibleBindingId="cfuenabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
+				<Label>Number:</Label>
+			</Field>
+			
+			<Field type="label" id="label_cfunumber" fontColor="darkgray" fontSize="mini" alignWithControl="true" visibleBindingId="cfuenabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
+                <Label>Enter an extension or feature code.  You can also use an outside number if you have enough lines to receive a call on one line and dial out another since forwarding to an outside number requires two lines.</Label>
+            </Field>
+			
+			<Field type="separator" id="sep_cfu" visibleBindingId="cfuenabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true"/>
+			
+			<Field id="cfbenabled" type="checkbox" defaultValue="false" >
+				<Label>Forwarding:</Label>
+				<Description>Busy</Description>
+			</Field>
+			
+			<Field type="label" id="label_cfbenabled" fontColor="darkgray" fontSize="mini" alignWithControl="true">
+                <Label>Busy forwarding will forward all calls to this extension when you are on the phone.</Label>
+            </Field>
+			
+			<Field id="cfbnumber" type="textfield" defaultValue="" visibleBindingId="cfbenabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
+				<Label>Number:</Label>
+			</Field>
+			
+			<Field type="label" id="label_cfbnumber" fontColor="darkgray" fontSize="mini" alignWithControl="true" visibleBindingId="cfbenabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true">
+                <Label>Enter an extension or feature code.  You can also use an outside number if you have enough lines to receive a call on one line and dial out another since forwarding to an outside number requires two lines.</Label>
+            </Field>
+			
+			<Field type="separator" id="sep_cfb" visibleBindingId="cfbenabled" visibleBindingValue="true" alwaysUseInDialogHeightCalc="true"/>
+			
+			<Field id="ringtimer" type="textfield" defaultValue="120">
+				<Label>Seconds to ring:</Label>
+			</Field>
+			
+		</ConfigUI>
+		<CallbackMethod>action_cf</CallbackMethod>
+	</Action>	
+	
+	<Action id="cfDisableAll" deviceFilter="com.eps.indigoplugin.freepbx.Extension" uiPath="DeviceActions">
+		<Name>Call Forward - Turn All Off</Name>
+		<CallbackMethod>action_cf</CallbackMethod>
+	</Action>
+	
+	<Action id="cfDisableUC" deviceFilter="com.eps.indigoplugin.freepbx.Extension" uiPath="DeviceActions">
+		<Name>Call Forward - Turn Unconditional Off</Name>
+		<CallbackMethod>action_cf</CallbackMethod>
+	</Action>
+	
+	<Action id="cfDisableBusy" deviceFilter="com.eps.indigoplugin.freepbx.Extension" uiPath="DeviceActions">
+		<Name>Call Forward - Turn Busy Off</Name>
+		<CallbackMethod>action_cf</CallbackMethod>
+	</Action>	
+	
+	<Action id="cfDisableUA" deviceFilter="com.eps.indigoplugin.freepbx.Extension" uiPath="DeviceActions">
+		<Name>Call Forward - Turn Unavailable Off</Name>
+		<CallbackMethod>action_cf</CallbackMethod>
+	</Action>
+
+
+	<Action id="sep_cf" uiPath="DeviceActions"/>
+
+	<Action id="dndEnable" deviceFilter="com.eps.indigoplugin.freepbx.Extension" uiPath="DeviceActions">
+		<Name>Do Not Disturb - Enable</Name>
+		<CallbackMethod>action_dnd</CallbackMethod>
+	</Action>	
+	
+	<Action id="dndDisable" deviceFilter="com.eps.indigoplugin.freepbx.Extension" uiPath="DeviceActions">
+		<Name>Do Not Disturb - Disable</Name>
+		<CallbackMethod>action_dnd</CallbackMethod>
+	</Action>		
+	
+	<Action id="sep_dnd" uiPath="DeviceActions"/>
+	
+</Actions>
