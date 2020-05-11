@@ -642,11 +642,11 @@ class Plugin(indigo.PluginBase):
 				#		indigo.server.log(unicode(extdata))
 
 			elif ret.status_code == 403:
-				self.logger.error (u"Access forbidden to FreePBX RestAPI on {}: {}".format(dev.name, ret.text))
+				self.logger.error (u"{} Access forbidden to FreePBX RestAPI on {}: {}".format(ret.status_code, dev.name, ret.text))
 			elif ret.status_code == "404":
-				self.logger.error (u"Invalid response to FreePBX RestAPI on {}: {}".format(dev.name, ret.text))
+				self.logger.error (u"{} Invalid response to FreePBX RestAPI on {}: {}".format(ret.status_code, dev.name, ret.text))
 			else:
-				self.logger.error (u"Invalid response to FreePBX RestAPI on {}: {}".format(dev.name, ret.text))
+				self.logger.error (u"{} Invalid response to FreePBX RestAPI on {}: {}".format(ret.status_code, dev.name, ret.text))
 
 
 			#indigo.server.log(u"{}".format(ret))
